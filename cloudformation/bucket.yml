@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  Create a bucket.
+
+Parameters:
+  InputBucketName:
+    Description: The bucket name. (required)
+    Type: String
+    MinLength: 1
+    MaxLength: 64
+  InputApplicationId:
+    Description: The application ID related to the pool. (required)
+    Type: String
+    MinLength: 1
+    MaxLength: 128
+  InputCreatedBy:
+    Description: Who created the pool. (required)
+    Type: String
+    MinLength: 1
+    MaxLength: 128
+  InputEnvironment:
+    Description: The environment of the pool. (required)
+    Type: String
+    MinLength: 1
+    MaxLength: 128
+  InputResourceDesc:
+    Description: The user pool description. (required)
+    Type: String
+    MinLength: 1
+    MaxLength: 128
+  InputOrganization:
+    Description: The organization related to the pool. (required)
+    Type: String
+    MinLength: 1
+    MaxLength: 128
+
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref InputBucketName
+      AccessControl: BucketOwnerFullControl
+      #AccelerateConfiguration:
+      #AnalyticsConfigurations:
+      #BucketEncryption:
+      #CorsConfiguration:
+      #InventoryConfigurations:
+      #LifecycleConfiguration:
+      #LoggingConfiguration:
+      #MetricsConfigurations:
+      #NotificationConfiguration:
+      #ReplicationConfiguration:
+      #VersioningConfiguration:
+      #WebsiteConfiguration:
+      Tags:
+        - Key: "ApplicationId"
+          Value: !Ref InputApplicationId
+        - Key: "CreatedBy"
+          Value: !Ref InputCreatedBy
+        - Key: "Environment"
+          Value: !Ref InputEnvironment
+        - Key: "ResourceDesc"
+          Value: !Ref InputResourceDesc
+        - Key: "Organization"
+          Value: !Ref InputOrganization
+
+
+Outputs:
+  Bucket: 
+    Value: !Ref Bucket
