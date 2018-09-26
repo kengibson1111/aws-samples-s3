@@ -2,7 +2,7 @@
 
 CloudFormation, CLI, and code samples for S3 use cases.
 
-## CloudFormation templates
+## AWS CloudFormation templates
 
 The baseline bucket.yml is one of the simplest templates one can use to create a single bucket in a single stack. It also contains commented elements which can be researched [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html). Also included are four CloudFormation-related scripts for deleting stacks, listing stacks, and template validation.
 
